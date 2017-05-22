@@ -1,0 +1,48 @@
+package com.amur.areas.brands.entity;
+
+import com.amur.areas.products.entity.Product;
+
+import javax.persistence.*;
+import java.util.Set;
+
+@Entity
+@Table(name = "brands")
+public class Brand {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "name")
+    private String name;
+
+    @OneToMany(mappedBy = "brand", targetEntity = Product.class)
+    private Set<Product> products;
+
+    public Brand() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
+    }
+}
