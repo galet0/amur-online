@@ -1,0 +1,13 @@
+<header th:fragment="header" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <div th:replace="~{fragments/cart-navbar}"></div>
+
+    <div th:replace="~{fragments/top-navbar}"></div>
+
+    <div th:replace="~{fragments/menu-categories}"></div>
+
+    <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+        <div th:replace="~{fragments/admin-navbar}"></div>
+    </th:block>
+
+</header>

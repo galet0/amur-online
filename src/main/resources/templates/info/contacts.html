@@ -1,0 +1,57 @@
+<br/>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="well">
+                <h3 style="line-height:20%;"><i class="fa fa-home fa-1x" style="line-height:6%;color:rgba(5,201,243,0.74)"></i> Адрес:</h3>
+                <p style="margin-top:6%;line-height:35%">гр. Бургас, ж.к. Меден Рудник "Търговски център Тами" </p>
+                <p style="margin-top:6%;line-height:35%">(срещу бензиностанция Лукойл)</p>
+                <br />
+                <br />
+                <h3 style="line-height:20%;"><i class="fa fa-phone fa-1x" style="line-height:6%;color:rgba(5,201,243,0.74)"></i> Телефон:</h3>
+                <p style="margin-top:6%;line-height:35%">0887 999 888</p>
+                <p style="margin-top:6%;line-height:35%">0899 888 777</p>
+                <br />
+                <br />
+                <h3 style="line-height:20%;"><i class="fa fa-envelope fa-1x" style="line-height:6%;color:#05c9f3"></i> E-Mail:</h3>
+                <p style="margin-top:6%;line-height:35%">amur_bs@abv.bg</p>
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+            <style>
+                /* Always set the map height explicitly to define the size of the div
+                 * element that contains the map. */
+                #map {
+                    height: 100%;
+                    width: 100%;
+                }
+                /* Optional: Makes the sample page fill the window. */
+                html, body {
+                    height: 100%;
+                    /*margin-left: 90px;*/
+                    /*margin-right: 90px;*/
+                    padding: 0;
+                }
+            </style>
+
+            <div id="map"></div>
+            <script>
+                function initMap() {
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: 42.457428, lng: 27.416655},
+                        zoom: 50,
+                        mapTypeId: 'satellite'
+                    });
+                    map.setTilt(100);
+                }
+            </script>
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-pB47s6UrU55nKWdt3fSNdSc4rNJPpA4&callback=initMap">
+            </script>
+        </div>
+    </div>
+</div>
+<br/>

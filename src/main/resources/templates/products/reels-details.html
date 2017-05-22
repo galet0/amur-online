@@ -1,0 +1,56 @@
+<br/>
+<div class="container">
+    <div id="card-product-details" class="card">
+        <div class="container-fliud">
+            <div class="wrapper row" th:object="${product}">
+                <div class="preview col-md-6">
+
+                    <div class="preview-pic tab-content">
+                        <div class="tab-pane active" id="pic-1"><img id="product-img" th:src="*{image}" alt="*{name}" /></div>
+                    </div>
+                </div>
+                <div class="details col-md-6">
+                    <h3 class="product-title" th:text="*{name}"></h3>
+
+                    <p class="product-description" th:text="*{description}"></p>
+
+                    <th:block>
+                        <div th:if="*{size} != null">
+                            <p class="product-size" th:text="|Размер: *{#numbers.formatDecimal(size, 0, 0)}|"></p>
+                        </div>
+                        <div th:unless="*{size}" th:remove="tag">
+
+                        </div>
+                        <div th:if="*{weight} != null">
+                            <p class="product-weight" th:text="|Тегло: *{#numbers.formatDecimal(weight, 0, 0)}гр.|"></p>
+                        </div>
+                        <div th:unless="*{weight}" th:remove="tag">
+
+                        </div>
+                        <div th:if="*{length} != null">
+                            <p class="product-length" th:text="|Дължина: *{length}м.|"></p>
+                        </div>
+                        <div th:unless="*{length}" th:remove="tag">
+
+                        </div>
+                        <div th:if="*{brandName} != null">
+                            <p class="product-brand" th:text="|Марка: *{brandName}|"></p>
+                        </div>
+                        <div th:unless="*{brandName}" th:remove="tag">
+
+                        </div>
+                    </th:block>
+                    <h4 class="price" th:text="|Цена: *{#numbers.formatDecimal(price, 1, 2)}лв.|"><span></span></h4>
+                    <div class="action">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <a class="btn btn-success" th:href="@{/products}">Назад</a>
+                        <a class="btn btn-primary" th:href="@{/cart/buy/{id}(id=${product.id})}">Купи</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>

@@ -1,0 +1,52 @@
+<!--<div class="container">-->
+    <!--<div class="row">-->
+        <!--<div class="col-6 offset-3">-->
+            <!--<div class="text-center">-->
+                <!--<h3 class="display-3" th:text="|${type} категория|"></h3>-->
+            <!--</div>-->
+            <!--<br/>-->
+            <!--<form method="post" th:object="${category}">-->
+                <!--<div class="form-group row">-->
+                    <!--<input type="text" class="form-control" th:field="*{name}" required/>-->
+                <!--</div>-->
+                <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
+                <!--<input type="submit" class="btn btn-outline-warning btn-lg btn-block"-->
+                       <!--th:value="${type}"/>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<div th:fragment="addCategoryModal">
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">Добави категория</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 offset-3">
+                                <form method="post" action="/admin/categories/add" th:object="${category}">
+                                    <div class="form-group row">
+                                        <input type="text" class="form-control" th:field="*{name}" required/>
+                                    </div>
+                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                                    <input type="submit" class="btn btn-outline-warning btn-lg btn-block"
+                                           th:value="Добави"/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="modal-footer">-->
+                <!--<button type="button" class="btn btn-primary">Запази</button>-->
+                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Откажи</button>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>

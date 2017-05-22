@@ -1,0 +1,47 @@
+<br/>
+<div class="container" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="jumbotron" th:object="${order}">
+        <h1 class="text-center" th:text="|CartID: *{id}|"></h1>
+        <h3 class="text-center" th:text="|Потребител: *{userUsername}|"></h3>
+        <p th:text="|Име: ${user.firstName}|"></p>
+        <p th:text="|Фамилия: ${user.lastName}|"></p>
+        <p th:text="|Емейл: ${user.email}|"></p>
+        <p th:text="|Телефон: ${user.phoneNumber}|"></p>
+        <p th:text="|Държава: ${user.countryName}|"></p>
+        <p th:text="|Област: ${user.regionName}|"></p>
+        <p th:text="|Град: ${user.town}|"></p>
+        <p th:text="|Пощенски код: ${user.postalCode}|"></p>
+        <p th:text="|Адрес: ${user.address}|"></p>
+        <p th:text="|Допълнение към адреса: ${user.addressAddition}|"></p>
+        <p th:text="|Факс: ${user.faxNumber}|"></p>
+        <p th:text="|Фирма: ${user.business}|"></p>
+        <hr/>
+        <table id="categoryTable" class="table table-hover">
+            <thead>
+            <tr>
+                <th>Продукт ID:</th>
+                <th>Име:</th>
+                <th>Цена:</th>
+                <th>Размер:</th>
+                <th>Тегло:</th>
+                <th>Дължина:</th>
+                <th>Марка:</th>
+                <th>Количество:</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${order.products}">
+                <th scope="row" th:text="${product.id}"></th>
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${product.size}"></td>
+                <td th:text="${product.weight}"></td>
+                <td th:text="${product.length}"></td>
+                <td th:text="${product.brandName}"></td>
+                <td th:text="${product.quantity}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

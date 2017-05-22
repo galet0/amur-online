@@ -1,0 +1,81 @@
+<div class="container" xmlns:th="http://www.thymeleaf.org">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Продукт</th>
+                    <th>Количество</th>
+                    <th class="text-center">Цена</th>
+                    <th class="text-center">Общо</th>
+                    <th> </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--<th:block th:if="${#request.getSession().getAttribute('products')} != null">-->
+                    <tr th:each="product : ${#request.getSession().getAttribute('products')}">
+                        <td class="col-sm-8 col-md-6">
+                            <div class="media">
+                                <a class="thumbnail pull-left" > <img class="media-object" th:src="${product.image}" style="width: 72px; height: 72px;"> </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading" th:text="${product.name}">Product name</a></h4>
+                                    <h5 class="media-heading" th:text="${product.brandName}"> by <a href="#"></a></h5>
+                                    <!--<span>Status: </span><span class="text-success"><strong>In Stock</strong></span>-->
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong th:text="${product.quantity}"></strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong th:text="|${#numbers.formatDecimal(product.price, 1, 2)}лв|"></strong></td>
+                        <th:block th:if="total=${product.quantity * product.price}">
+                            <td class="col-sm-1 col-md-1 text-center"><strong th:text="|${#numbers.formatDecimal(total, 1, 2)}лв|"></strong></td>
+                        </th:block>
+                        <td class="col-sm-1 col-md-1">
+                            <a type="button" class="btn btn-danger" th:href="@{/cart/remove/{id}(id=${product.id})}">
+                                <span class="glyphicon glyphicon-remove"></span> Премахни
+                            </a>
+                        </td>
+                    </tr>
+                    <!--<tr th:unless="${#request.getSession().getAttribute('products') == null}" th:remove="all">Количката ви е празна</tr>-->
+                <!--</th:block>-->
+
+
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td>   </td>
+                    <td>   </td>
+                    <td>   </td>
+                    <td><h5>За плащане:<br></h5></td>
+                    <td class="text-right" th:text="|${#numbers.formatDecimal(#request.getSession().getAttribute('grandtotal'), 1, 2)}лв|"><h5></h5></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a type="button" class="btn btn-outline-danger" th:href="@{/cart/clear}">
+                            <span class="glyphicon glyphicon-shopping-cart"></span>Изчисти количката
+                        </a>
+                    </td>
+                    <td>   </td>
+                    <td>   </td>
+                    <td>
+                        <a type="button" class="btn btn-outline-warning" th:href="@{/products}">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Продължи с пазаруването
+                        </a>
+                    </td>
+                    <td>
+                        <th:block th:if="${#request.getUserPrincipal() != null}">
+                            <a type="button" class="btn btn-success" th:href="@{/cart/order}">
+                                Финализирай поръчката <span class="glyphicon glyphicon-play"></span>
+                            </a>
+                        </th:block>
+                        <th:block th:if="${#request.getUserPrincipal() == null}">
+                            <a type="button" class="btn btn-success" th:href="@{/cart/order}">
+                                Поръчай <span class="glyphicon glyphicon-play"></span>
+                            </a>
+                        </th:block>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

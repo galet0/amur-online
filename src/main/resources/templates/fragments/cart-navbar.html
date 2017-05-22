@@ -1,0 +1,25 @@
+<div th:fragment="cart-navbar">
+    <div class="container">
+        <nav class="navbar navbar-toggleable-md navbar-light">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" th:href="@{/cart}">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i><span style="font-size: 15px">  Моята количка</span>
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+
+                </ul>
+                <form method="get" class="form-inline my-2 my-lg-0" action="/search">
+                    <input class="form-control mr-sm-2" type="text" name="name"  placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Търси...</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+</div>
+
+
+

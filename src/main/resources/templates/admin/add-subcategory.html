@@ -1,0 +1,31 @@
+<div th:fragment="addSubcategoryModal">
+    <div class="modal fade" id="addSubcategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">Добави подкатегория</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 offset-3">
+                                <br/>
+                                <form method="post" th:action="@{/admin/categories/{id}/subcategories/add(id=${category.id})}">
+                                    <div class="form-group row">
+                                        <input type="text" class="form-control" th:field="${subcategory.name}" required/>
+                                    </div>
+                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                                    <input type="submit" class="btn btn-outline-warning btn-lg btn-block"
+                                           th:value="Добави"/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

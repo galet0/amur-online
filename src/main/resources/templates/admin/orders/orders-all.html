@@ -1,0 +1,29 @@
+<div class="container">
+    <h1 style="text-align: center">Поръчки</h1>
+
+    <table id="categoryTable" class="table table-hover">
+        <thead>
+        <tr>
+            <th>CartID:</th>
+            <th>Име на потребител:</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cart : ${orders}">
+                <th scope="row" th:text="${cart.id}"></th>
+                <td th:text="${cart.userUsername}"></td>
+                <td>
+                    <a th:href="@{/admin/order/details/{id}(id=${cart.id})}">Детайли поръчка</a>
+                </td>
+                <td>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Поръчката е изпълнена
+                        </label>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

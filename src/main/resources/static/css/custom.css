@@ -1,0 +1,129 @@
+#custom-navbar {
+    min-height: 60px;
+}
+
+#custom-navbar-brand {
+    padding: 0 15px;
+    height: 80px;
+    line-height: 80px;
+}
+
+.navbar-toggle {
+    /* (80px - button height 34px) / 2 = 23px */
+    margin-top: 23px;
+    padding: 9px 10px !important;
+}
+
+@media (min-width: 768px) {
+        #custom-navbar-nav > li > a {
+        /* (80px - line-height of 27px) / 2 = 26.5px */
+        padding-top: 26.5px;
+        padding-bottom: 26.5px;
+        line-height: 27px;
+    }
+}
+
+#product-img{
+    max-width: 100%;
+}
+
+#products-all-img{
+    max-width: 250px;
+    margin-left: 40px;
+}
+
+.carousel-inner img{
+    width: 80%;
+    height: 500px;
+    margin-left: 150px;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.prettyline {
+    height: 5px;
+    border-top: 0;
+    background: #c4e17f;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+
+.dropdown:hover
+.dropdown-menu {
+    display: block;
+}
+
+#cart-img {
+    margin-right:2px;
+}
+
+#new-products {
+    font-family: Impact;
+    font-size: 20px;
+    font-stretch: extra-expanded;
+}
+
+.zoom{
+    position: relative;
+    overflow: visible;
+}
+
+.zoom:hover #products-all-img{
+    transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+}
+
+.zoom #products-all-img{
+    transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+
+#tab, #tab2, #tab4, #tab5{
+    text-indent: 20px;
+}
+
+#tab3{
+    text-indent: 40px;
+}
+
+.myFont{
+    color: #1d1e1f;
+    font-family: Lucida Sans Unicode;
+    font-style: italic;
+    font-size: 13px;
+}
+
+#amur{
+    font-family: Lucida Sans Unicode;
+    text-align: center;
+}
+
+#product-title{
+    font-family: Adobe Minion Cyrillic;
+    text-align: center;
+    font-size: 22px;
+    color: #4b5257;
+}
+
+#product-description{
+    font-family: ER Bukinst;
+    text-align: center;
+    font-size: 17px;
+    color: lightslategray;
+}
+
+#product-price{
+    font-family: Adobe Minion Cyrillic;
+    text-align: center;
+    font-size: 22px;
+    color: #4b5257;
+}

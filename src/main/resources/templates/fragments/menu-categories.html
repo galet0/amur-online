@@ -1,0 +1,26 @@
+<nav th:fragment="menu-categories" class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+    <div class="container-fluid">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul id="categories" class="navbar-nav navbar-inverse bg-inverse">
+                <!--<li th:each="category : ${categories}" class="nav-item dropdown">-->
+                    <!--<a th:href="@{/products}" th:text="${category.name}" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+
+                    <!--</a>-->
+                    <!--<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">-->
+                        <!--<ul th:each="subcategory : ${category.subcategories}">-->
+                            <!--<li class="dropdown-item dropdown">-->
+                                <!--<a class="dropdown-item" th:text="${subcategory.name}" href="#">-->
+
+                                <!--</a>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+</nav>

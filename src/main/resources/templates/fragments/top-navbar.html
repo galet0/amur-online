@@ -1,0 +1,44 @@
+<!--<div th:replace="~{users/login}"></div>-->
+<!--<div th:replace="~{users/register}"></div>-->
+
+<nav th:fragment="top-navbar" id="custom-navbar" class="navbar navbar-toggleable-md navbar-light"
+     xmlns:th="http://www.w3.org/1999/xhtml">
+    <a id="custom-navbar-brand" class="navbar-brand" href="/">
+        <img src="/images/logo.jpg" width="80" height="80" class="d-inline-block align-top" alt="logo">
+        Amur
+    </a>
+    <ul id="custom-navbar-nav" class="nav navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/products">Продукти</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/aboutus">За нас</a>
+        </li>
+        <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="/tickets">Заяви риболовен билет</a>-->
+        <!--</li>-->
+    </ul>
+    <ul class="navbar-nav">
+        <th:block th:if="${#request.getUserPrincipal() != null}">
+            <li class="nav-item">
+                <a th:href="@{/users/logout}" class="nav-link" th:text="|Изход ${#request.getUserPrincipal().getName()}|">
+                    Изход
+                </a>
+            </li>
+        </th:block>
+        <th:block th:if="${#request.getUserPrincipal() == null}">
+            <li class="nav-item">
+                <!--data-toggle="modal" data-target="#loginModal"-->
+                <a th:href="@{/users/register}" class="nav-link">
+                    Регистрация
+                </a>
+            </li>
+            <li class="nav-item">
+                <!--data-toggle="modal" data-target="#loginModal"-->
+                <a th:href="@{/users/login}" class="nav-link">
+                    Вход
+                </a>
+            </li>
+        </th:block>
+    </ul>
+</nav>

@@ -1,0 +1,56 @@
+<main>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+            <div th:replace="~{fragments/my-carousel}"></div>
+
+            <span>Welcome to Amur online shop!</span>
+                <div id="new-products">
+                    Нови продукти
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-group">
+                    <th:block th:if="${#lists.size(products)} > 0" th:each="product,iter : ${products}">
+
+                        <th:block th:if="${iter.index} % 3 == 0">
+                            <div class="w-100"></div>
+                        </th:block>
+
+                        <div class="card col-4 thumbnail">
+                            <div class="card-block">
+                                <h5 id="product-title" class="card-title" th:text="${product.name}"></h5>
+                            </div>
+                            <div class="zoom">
+                                <a th:href="@{'/products/categories/' + ${product.categoryId} + '/subcategories/' + ${product.subcategoryId} + '/' + ${product.subcategoryName}+ '/' + ${product.id}}">
+                                    <img id="products-all-img" th:src="${product.image}" alt="">
+                                </a>
+                            </div>
+                            <div class="card-block">
+                                <!--<p id="product-description" class="card-text" th:text="${product.description}"></p>-->
+                                <p id="product-price" class="text-muted" th:text="|Цена: ${#numbers.formatDecimal(product.price, 1, 2)}лв.|"></p>
+
+                                <a th:href="@{'/products/categories/' + ${product.categoryId} + '/subcategories/' + ${product.subcategoryId} + '/' + ${product.subcategoryName}+ '/' + ${product.id}}" type="button" class="btn btn-outline-primary">Преглед</a>
+
+                                <a type="button" th:href="@{/cart/buy/{id}(id=${product.id})}" class="btn btn-outline-primary">Купи</a>
+                                <th:block>
+                                    <div sec:authorize="hasRole('ROLE_ADMIN')">
+                                        <a th:href="@{'/admin/subcategories/' + ${product.subcategoryId} + '/product/edit/' + ${product.id}}" type="button" class="btn btn-success">Редактирай</a>
+                                        <!--</div>-->
+                                        <!--<div sec:authorize="hasRole('ROLE_ADMIN')">-->
+                                        <a th:href="@{'/admin/subcategories/' + ${product.subcategoryId} + '/product/delete/' + ${product.id}}" type="button" class="btn btn-danger">Изтрий</a>
+                                    </div>
+                                </th:block>
+                            </div>
+                        </div>
+
+                    </th:block>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

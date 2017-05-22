@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <br/>
+            <h2>Влезте в профила си</h2>
+            <br/>
+            <div class="form-control">
+                <div th:if="${error} != null" th:text="${error}"></div>
+                <form method="post">
+                    <div class="form-group">
+                        <label class="form-control-label" for="inputUsername">Потребителско име:</label>
+                        <input type="text" class="form-control form-control-danger" id="inputUsername" placeholder="Потребителско име" name="username"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="inputPassword">Парола:</label>
+                        <input type="password" class="form-control form-control-danger" id="inputPassword" placeholder="Парола" name="password"/>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="rememberMe"/>
+                            Запомни ме
+                        </label>
+                    </div>
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                    <input type="submit" class="btn btn-success" value="Вход"/>
+                </form>
+                <br/>
+                <form action="/connect/facebook" method="post">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                    <input type="hidden" name="scope" value="public_profile, email"/>
+                    <input class="btn btn-primary" type="submit" value="Вход чрез Facebook"/>
+                </form>
+            </div>
+            <br/>
+        </div>
+    </div>
+</div>

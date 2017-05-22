@@ -1,0 +1,70 @@
+<div th:replace="~{admin/add-category}"></div>
+<!--<div th:replace="~{admin/edit-category}"></div>-->
+<div class="container">
+    <h1 style="text-align: center">Категории</h1>
+    <div>
+        <a id="addCategoryButton" th:href="@{/admin/categories/add}" class="btn btn-success" data-toggle="modal" data-target="#addCategoryModal">
+            <strong>+</strong> Добави категория
+        </a>
+    </div>
+
+    <table id="categoryTable" class="table table-hover">
+        <thead>
+        <tr>
+            <th>ID:</th>
+            <th>Име на категория:</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="category : ${categoryList}">
+            <th scope="row" th:text="${category.id}"></th>
+            <td th:text="${category.name}"></td>
+            <td>
+                <a th:href="@{/admin/categories/{id}/subcategories(id=${category.id})}">Детайли</a>
+            </td>
+            <td>
+                <a th:href="@{/admin/categories/edit/{id}(id=${category.id})}">Редактиране</a>
+            </td>
+            <!--<td>-->
+                <!--<a th:href="@{/admin/categories/delete/{id}(id=${category.id})}">Изтрий</a>-->
+            <!--</td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!--<script>-->
+
+    <!--(function () {-->
+        <!--getCategoryPage();-->
+    <!--});-->
+
+
+    <!---->
+    <!--function getCategoryPage() {-->
+        <!--$.ajax({-->
+            <!--type: 'GET',-->
+            <!--url: '/categories/all',-->
+            <!--data: 'json',-->
+            <!--success: function (categories) {-->
+                <!--getCategories(categories);-->
+            <!--}-->
+        <!--});-->
+    <!--}-->
+
+    <!--function getCategories(categories) {-->
+        <!--$('#categoryTable').empty();-->
+
+        <!--$.each(categories, function (i, category) {-->
+            <!--let categoryId = category.id;-->
+            <!--let categoryName = category.name;-->
+            <!--$('#categoryTable')-->
+                <!--.append(-->
+                    <!--$('<th></th>').attr('scope', 'row')-->
+                        <!--.text(categoryId)-->
+                <!--).append(-->
+                <!--$('<td></td>')-->
+                    <!--.text(categoryName)-->
+            <!--)-->
+        <!--});-->
+    <!--}-->
+<!--</script>-->
